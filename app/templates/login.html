@@ -1,20 +1,72 @@
-{% load static  %}
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="{% static 'css/disenio.css'%}">
     <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/disenio.css'%}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>LOGIN</title>
+    
 </head>
 <body>
-    <div class="login">
-        <h1>Login</h1>
-        <form method="post">
-            <input type="text" name="u" placeholder="Username"  />
-            <input type="password" name="p" placeholder="Password"  />
-            <button type="submit" class="btn btn-primary btn-block btn-large"><a href="{%url 'index' %}">INICIAR SESION</a></button>
+    <div class="inicio">
+        
+        <h1>BEAUTY AI</h1>
+        <h2>INICIAR SESION</h2>
+        <form action="/iniciar-sesion" method="POST">
+            <label for="nombre">Nombre</label>
+            <input type="text" id="nombre" name="nombre" required placeholder="ingrese el nombre">
+            <label for="contraseña">Contraseña</label>
+            <input type="password" id="contraseña" name="contraseña" required placeholder="ingrese la contraseña">
+            <input type="submit" value="iniciar sesion">
+         </form>
+         <a href="#" id="registro">Registrarse</a>
+
+    </div>
+        
+
+   <div class="registrar" id="formularioregistro">
+        <h1>BEAUTY AI</h1>
+        <h2>REGISTRARSE</h2>
+       <form action="/guardar" method="POST">
+           <label for="nombre">Nombre</label>
+           <input type="text" id="nombre" name="nombre" required placeholder="ingresa el nombre">
+           <label for="contraseña">Contraseña</label>
+           <input type="password" id="contraseña" name="contraseña" required placeholder="ingresa la contraseña">
+           <input type="submit" value="registrar">
+           <button type="button" id="volver">VOLVER</button>
         </form>
-    </div>   
-</body>
+    </div>
+    <script>
+        const registrarselink= document.getElementById("registro");
+        const formularioregistro= document.getElementById("formularioregistro");
+        const btnVolver= document.getElementById("volver");
+        const formularioInicio= document.querySelector(".inicio");
+        
+        registrarselink.addEventListener("click",function(event){
+            event.preventDefault();
+
+            if(formularioregistro.style.display=== "none"||formularioregistro.style.display==="") {
+                formularioregistro.style.display ="block";
+                if (formularioInicio) {
+                    formularioInicio.style.display = "none";
+                }
+            }else{
+                formularioregistro.style.display ="none";
+                if (formularioInicio) {
+                    formularioInicio.style.display = "block";
+                }
+            }
+            
+        })
+        btnVolver.addEventListener("click", function() {
+            formularioregistro.style.display = "none";
+            if (formularioInicio) {
+                formularioInicio.style.display = "block";
+            }
+        })
+    </script>
+
+
+    </body>
 </html>
