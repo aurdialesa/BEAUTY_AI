@@ -2,10 +2,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="icon" type="image/png" sizes="16x16"  href="{%static 'img/favicon-16x16.png'%}">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="theme-color" content="#ffffff">
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="{% static 'css/disenio.css'%}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LOGIN</title>
+    <title>BEAUTY AI</title>
     
 </head>
 <body>
@@ -13,14 +16,15 @@
         
         <h1>BEAUTY AI</h1>
         <h2>INICIAR SESION</h2>
-        <form action="/iniciar-sesion" method="POST">
-            <label for="nombre">Nombre</label>
-            <input type="text" id="nombre" name="nombre" required placeholder="ingrese el nombre">
-            <label for="contraseña">Contraseña</label>
-            <input type="password" id="contraseña" name="contraseña" required placeholder="ingrese la contraseña">
-            <input type="submit" value="iniciar sesion">
+        <form action="{% url 'index' %}" method="POST">
+            {% csrf_token %} 
+            <label for="nombre">NOMBRE</label>
+            <input type="text" id="nombre" name="name" required placeholder="Ingrese el nombre">
+            <label for="contraseña">CONTRASEÑA</label>
+            <input type="password" id="contraseña" name="password" required placeholder="Ingrese la contraseña">
+            <input type="submit" value="INICIAR SESION">
          </form>
-         <a href="#" id="registro">Registrarse</a>
+         <a href="#" id="registro">REGISTRARSE</a>
 
     </div>
         
@@ -28,12 +32,24 @@
    <div class="registrar" id="formularioregistro">
         <h1>BEAUTY AI</h1>
         <h2>REGISTRARSE</h2>
-       <form action="/guardar" method="POST">
+       <form action="{% url 'guardar_registro' %}" method="POST">
+            {% csrf_token %} 
            <label for="nombre">Nombre</label>
-           <input type="text" id="nombre" name="nombre" required placeholder="ingresa el nombre">
+           <input type="text" id="nombre" name="nombre" required placeholder="Ingresa el nombre">
+            <label for="apellido">Apellido</label>
+           <input type="text" id="apellido" name="apellido" required placeholder="Ingresa el apellido">
+           <label for="identificacion">Identificacion</label>
+           <input type="text" id="identificacion" name="identificacion" required placeholder="Ingresa el apellido">
+           <label for="email">Correo Electronico</label>
+           <input type="text" id="correo_electronico" name="email" required placeholder="Ingresa el apellido">
+           <label for="telefono">Telefono</label>
+           <input type="text" id="telefono" name="telefono" required placeholder="Ingresa el apellido">
+           <label for="direccion">Direccion</label>
+           <input type="text" id="direccion" name="direccion" required placeholder="Ingresa el apellido">
+           
            <label for="contraseña">Contraseña</label>
-           <input type="password" id="contraseña" name="contraseña" required placeholder="ingresa la contraseña">
-           <input type="submit" value="registrar">
+           <input type="password" id="contraseña" name="password" required placeholder="Ingresa la contraseña">
+           <input type="submit" value="REGISTRAR">
            <button type="button" id="volver">VOLVER</button>
         </form>
     </div>
