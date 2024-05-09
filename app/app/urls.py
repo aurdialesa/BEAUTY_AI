@@ -16,7 +16,7 @@ Including another URLconf
 """
 from django.urls import path
 from django.views.generic.base import RedirectView
-from modulos.views import first_view,second_view,third_view,four_view,five_view,six_view,guardar_registro
+from modulos.views import first_view,second_view,third_view,four_view,five_view,six_view,guardar_registro,iniciar_sesion
 
 
 urlpatterns = [
@@ -27,5 +27,6 @@ urlpatterns = [
     path('rec2/', four_view, name='rec2'),
     path('rec3/', five_view, name='rec3'),
     path('cal_sug/', six_view, name='cal_sug'),
-    path('guardar_registro/', guardar_registro, name='guardar_registro')
+    path('guardar_registro/', guardar_registro, name='guardar_registro'),
+    path('iniciar_sesion/', iniciar_sesion, name='iniciar_sesion'),
 ]

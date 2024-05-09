@@ -16,8 +16,12 @@
         
         <h1>BEAUTY AI</h1>
         <h2>INICIAR SESION</h2>
-        <form action="{% url 'index' %}" method="POST">
+        <form action="{% url 'iniciar_sesion' %}" method="POST">
             {% csrf_token %} 
+            {% if mensaje_error %}
+                <p style="color: red;">{{ mensaje_error }}</p>
+            {% endif %}
+
             <label for="nombre">NOMBRE</label>
             <input type="text" id="nombre" name="name" required placeholder="Ingrese el nombre">
             <label for="contraseña">CONTRASEÑA</label>
